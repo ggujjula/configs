@@ -1,0 +1,5 @@
+base:
+  '*':
+    - os
+    - user
+    - neovim
