@@ -1,2 +1,2 @@
-{{ grains['target_user'] }}:
+{{ pillar['target_user'] }}:
   user.present

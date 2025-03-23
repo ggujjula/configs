@@ -10,13 +10,13 @@ neovim_packages:
 {{ os.home_dir }}/.config/nvim/init.lua:
   file:
     - managed
-    - source: salt://init.lua
+    - source: salt://files/init.lua
     - makedirs: True
-    - user: {{ grains['target_user'] }}
-    - group: {{ grains['target_group'] }}
+    - user: {{ pillar['target_user'] }}
+    - group: {{ pillar['target_group'] }}
     - require:
       - pkg: neovim_packages
-      - user: {{ grains['target_user'] }}
+      - user: {{ pillar['target_user'] }}
 
 # {{ os.home_dir }}/.local/share/nvim/site/autoload/plug.vim:
 #   file:
@@ -28,5 +28,5 @@ neovim_packages:
 #     - group: user
 #     - require:
 #       - pkg: neovim
-#       - user: {{ grains['target_user'] }}
+#       - user: {{ pillar['target_user'] }}
 
