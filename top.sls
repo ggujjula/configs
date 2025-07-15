@@ -7,3 +7,4 @@ base:
     - rust
     - utils
     - neovim
+    - alacritty
