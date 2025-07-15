@@ -365,6 +365,16 @@ require("lazy").setup({
 			-- Setup language servers.
 			local lspconfig = require('lspconfig')
 
+			-- C (Clangd)
+			lspconfig.clangd.setup {
+				-- Server-specific settings. See `:help lspconfig-setup`
+				cmd = { 'clangd', '--background-index',
+                                       '--clang-tidy', '--log=verbose' },
+                                -- init_options = {
+                                --     fallbackFlags = { '-std=c++17' },
+                                -- },
+			}
+
 			-- Rust
 			lspconfig.rust_analyzer.setup {
 				-- Server-specific settings. See `:help lspconfig-setup`
