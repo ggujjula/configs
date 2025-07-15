@@ -8,3 +8,4 @@ base:
     - utils
     - neovim
     - alacritty
+    - jj
