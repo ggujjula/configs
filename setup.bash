@@ -17,7 +17,7 @@ attached_to_terminal() {
 
 check_os() {
 	case "$1 $2" in
-		"Debian 11") return 0;;
+		"Debian 11" | "Ubuntu 24.04") return 0;;
 		*) return 1;
 	esac
 }
@@ -42,10 +42,10 @@ fi
 # os_id=`cat /etc/os-release | grep "^ID=" | cut -d '=' -f 2`
 # os_version_id=`cat /etc/os-release | grep "^VERSION_ID=" | cut -d '=' -f 2 | tr -d \"`
 
-os_id=`$salt_command grains.get os | tail -n 1 | tr -d \t | tr -d " "`
-os_version_id=`$salt_command grains.get osrelease | tail -n 1 | tr -d \t | tr -d " "`
-target_user=`$salt_command pillar.get target_user | tail -n 1 | tr -d \t | tr -d " "`
-target_group=`$salt_command pillar.get target_group | tail -n 1 | tr -d \t | tr -d " "`
+os_id=`$salt_command grains.get os | tail -n 1 | xargs`
+os_version_id=`$salt_command grains.get osrelease | tail -n 1 | xargs`
+target_user=`$salt_command pillar.get target_user | tail -n 1 | xargs`
+target_group=`$salt_command pillar.get target_group | tail -n 1 | xargs`
 
 if ! check_os $os_id $os_version_id; then
 	echo "Unsupported OS: $os_id $os_version_id. Exiting..."
