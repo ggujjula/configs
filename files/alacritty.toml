@@ -1,0 +1,9 @@
+working_directory = "/home/ggujjula"
+
+[window]
+decorations = "None"
+startup_mode = "Fullscreen"
+
+[font]
+normal = { family = "Fira Code", style = "Regular" }
+size = 16
